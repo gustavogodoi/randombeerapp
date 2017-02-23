@@ -1,7 +1,8 @@
 function BreweryDBService($http) {
 
 	var _apiKey = '09d781b90a0b6c7e8a4314f33ae1eee9';
-	var _crossorigin = 'https://cors-anywhere.herokuapp.com/';
+	// using cors-anywhere because crossorigin.me is super slow now.
+	var _crossorigin = 'https://cors-anywhere.herokuapp.com/';  // https://crossorigin.me/
 	var _url = _crossorigin+'http://api.brewerydb.com/v2/beer/random?key='+_apiKey;
 
 	this.getBeer = function getBeer() {
