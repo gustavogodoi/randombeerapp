@@ -12,7 +12,9 @@ function BreweryDBService($http) {
 			url: _url
 		}).then(function successCallback(response) {
             return response.data.data;
-		}).catch();
+		}).catch(function errorCallback(){
+			return false;
+		});
   };
 }
 angular

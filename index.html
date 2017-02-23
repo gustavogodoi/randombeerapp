@@ -22,12 +22,14 @@
         </div>
         
 
-        <div class="row" ng-if="!vm.loading && !vm.showDetails">
+        <div ng-if="!vm.loading && !vm.showDetails">
             
-        	<div class="col-md-12 text-right">
-				<label class="btn" ng-click="vm.reloadPage()">
-                	Show me another beer! &nbsp;&nbsp;<i class="glyphicon glyphicon-random"></i>
-                </label>
+        	<div class="row">
+	        	<div class="col-md-12 text-right">
+					<label class="btn" ng-click="vm.reloadPage()">
+	                	Show me another beer! &nbsp;&nbsp;<i class="glyphicon glyphicon-random"></i>
+	                </label>
+				</div>
 			</div>
 
 			<div class="row">
@@ -36,22 +38,17 @@
 	            </div>
 
 	            <div class="col-md-6 col-xs-12">
-	            	
-	            	<div class="row">
-	        			<div class="col-md-12">
-	        				<h3>{{vm.beer.name}}</h3>
-	        				<p>ABV: {{vm.beer.abv}}
-			                <p>Style: {{vm.beer.style.name}}</p>
-			                <p>{{vm.beer.description}}</p>
-			                <hr>
-			                <h3>
-			                	Brewery: 
-			                	<a href="#" ng-click="vm.showDetails = true;">
-			                		{{vm.beer.breweries[0].nameShortDisplay}}
-			                	</a>
-			                </h3>
-	    				</div>
-	            	</div>
+    				<h3>{{vm.beer.name}}</h3>
+    				<p>ABV: {{vm.beer.abv}}
+	                <p>Style: {{vm.beer.style.name}}</p>
+	                <p>{{vm.beer.description}}</p>
+	                <hr>
+	                <h3>
+	                	Brewery: 
+	                	<a href="#" ng-click="vm.showDetails = true;">
+	                		{{vm.beer.breweries[0].nameShortDisplay}}
+	                	</a>
+	                </h3>
 	            </div>
 	        </div>	
         </div>
@@ -76,6 +73,15 @@
 	            </div>
 	        </div>
         </div>
+
+        <div class="row" ng-if="vm.error == true">
+        	<div class="col-md-12 text-center">
+        		<img src="content/img/error-beer-not-found.jpg" />
+    		</div>
+    		<div class="col-md-12 text-center">
+    			<h3>Sorry, server is drunk! Come back later.</h3>
+			</div>
+    	</div>
         
     </div>
 

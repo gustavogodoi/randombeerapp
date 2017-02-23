@@ -6,6 +6,7 @@ function RandomBeerController (BreweryDBService) {
 	vm.beer = {};
 	vm.showDetails = false;
 	vm.loading = true;
+	vm.error = false;
 
 	// public functions
 	vm.reloadPage = _reloadPage;
@@ -19,7 +20,11 @@ function RandomBeerController (BreweryDBService) {
 	*/
 	function _init(){
 		BreweryDBService.getBeer().then(function(data){
-			vm.beer = data;
+			if(data === false){
+				vm.error = true;
+			}else{
+				vm.beer = data;
+			}
 			vm.loading = false;
 		});
 	}
