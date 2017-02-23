@@ -3,6 +3,7 @@
 <head>
 	<title>Random Beer</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0;" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="content/css/main.css">
 
@@ -30,11 +31,11 @@
 			</div>
 
 			<div class="row">
-	            <div class="col-md-6 text-center">
+	            <div class="col-md-6 col-xs-12 text-center">
 	                <img ng-src='{{vm.beer.labels.medium}}' />
 	            </div>
 
-	            <div class="col-md-6">
+	            <div class="col-md-6 col-xs-12">
 	            	
 	            	<div class="row">
 	        			<div class="col-md-12">
@@ -64,10 +65,10 @@
         		</div>
 	        </div>
 	        <div class="row">
-	        	<div class="col-md-6 text-center">
+	        	<div class="col-md-6 col-xs-12 text-center">
 	            	<img ng-src='{{vm.beer.breweries[0].images.squareMedium}}' />
             	</div>
-	            <div class="col-md-6">
+	            <div class="col-md-6 col-xs-12">
 	                <h3>{{vm.beer.breweries[0].nameShortDisplay}}</h3>
 	                <p>{{vm.beer.breweries[0].description}}</p>
 	                <p>Since: {{vm.beer.breweries[0].established}}</p>

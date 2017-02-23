@@ -11,7 +11,6 @@ function BreweryDBService($http) {
 			params: {withBreweries: 'Y', hasLabels: 'Y'},
 			url: _url
 		}).then(function successCallback(response) {
-            console.log(response);
             return response.data.data;
 		}).catch();
   };
