@@ -3,7 +3,7 @@
 <head>
 	<title>Random Beer</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width; initial-scale=1.0;" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="content/css/main.css">
 
@@ -39,8 +39,8 @@
 
 	            <div class="col-md-6 col-xs-12">
     				<h3>{{vm.beer.name}}</h3>
-    				<p>ABV: {{vm.beer.abv}}
-	                <p>Style: {{vm.beer.style.name}}</p>
+    				<p ng-if="vm.beer.abv">ABV: {{vm.beer.abv}}</p>
+	                <p ng-if="vm.beer.style.name">Style: {{vm.beer.style.name}}</p>
 	                <p>{{vm.beer.description}}</p>
 	                <hr>
 	                <h3>
