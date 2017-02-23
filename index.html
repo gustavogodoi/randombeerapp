@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Random Beer</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="content/css/main.css">
+
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+</head>
+<body ng-app="app">
+    
+    <div class="container" ng-controller="RandomBeerController as vm">
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    The Random Beer App!
+                </h1>
+            </div>
+        </div>
+        
+
+        <div class="row" ng-if="!vm.loading && !vm.showDetails">
+            <div class="col-md-6 text-center">
+                <img ng-src='{{vm.beer.labels.medium}}' />
+            </div>
+
+            <div class="col-md-6">
+            	<div class="row">
+        			<div class="col-md-12 text-right">
+        				<label class="btn" ng-click="vm.reloadPage()">
+		                	Show me another beer! &nbsp;&nbsp;<i class="glyphicon glyphicon-random"></i>
+		                </label>
+    				</div>
+            	</div>
+            	<div class="row">
+        			<div class="col-md-12">
+        				<h3>{{vm.beer.name}}</h3>
+		                <p>Style: {{vm.beer.style.name}}</p>
+		                <p>{{vm.beer.description}}</p>
+		                <hr>
+		                <h3>
+		                	Brewery: 
+		                	<a href="#" ng-click="vm.showDetails = true;">
+		                		{{vm.beer.breweries[0].nameShortDisplay}}
+		                	</a>
+		                </h3>
+    				</div>
+            	</div>
+            </div>
+        </div>
+
+        <div ng-if="!vm.loading && vm.showDetails">
+        	<div class="row">
+	        	<div class="col-md-12 text-left">
+	        		<label class="btn" ng-click="vm.showDetails = false;">
+	                	<i class="glyphicon glyphicon-backward"></i>&nbsp;&nbsp; Back to Beer page 
+	                </label>
+        		</div>
+	        </div>
+	        <div class="row">
+	        	<div class="col-md-6 text-center">
+	            	<img ng-src='{{vm.beer.breweries[0].images.squareMedium}}' />
+            	</div>
+	            <div class="col-md-6">
+	                <h3>{{vm.beer.breweries[0].nameShortDisplay}}</h3>
+	                <p>{{vm.beer.breweries[0].description}}</p>
+	                <p>Since: {{vm.beer.breweries[0].established}}</p>
+	                <p>Site: <a ng-href="{{vm.beer.breweries[0].website}}" target="_blank">{{vm.beer.breweries[0].website}}</a></p>
+	            </div>
+	        </div>
+        </div>
+        
+    </div>
+
+
+<script src="js/controller/RandomBeerController.js"></script>
+<script src="js/model/RandomBeerModel.js"></script>
+
+</body>
+</html>
